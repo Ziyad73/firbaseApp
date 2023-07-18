@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:untitled2/show_user_list/searchclients.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class UserFormScreen extends StatefulWidget {
   @override
@@ -117,9 +118,15 @@ class _UserFormScreenState extends State<UserFormScreen> {
                         "email": _emailController.text,
                         "from": _selectedSource,
                       });
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Showdata()),
+
+                      Fluttertoast.showToast(
+                          msg: "User has been added ",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0
                       );
                     }
                   },
